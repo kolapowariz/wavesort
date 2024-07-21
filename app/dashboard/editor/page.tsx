@@ -16,7 +16,7 @@ export default function Editor() {
   return (
     <div>
       <h1>Markdown Editor</h1>
-      <MdEditor value={markdown} onChange={handleEditorChange} renderHTML={(text) => <ReactMarkdown>{text}</ReactMarkdown> } className="h-full grid grid-cols-1" />
+      <MdEditor value={markdown} onChange={handleEditorChange} renderHTML={(text) => <ReactMarkdown>{text}</ReactMarkdown> } className="h-96 grid grid-cols-1" />
     </div>
   )
 }
