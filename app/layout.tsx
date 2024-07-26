@@ -25,7 +25,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="m-4">
+          <div className="mt-2">
             <ModeToggle />
           </div>
           {children}
