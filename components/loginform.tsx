@@ -1,8 +1,12 @@
+'use client';
+import { useFormStatus, useFormState} from 'react-dom'
+import { authenticate } from '@/app/lib/action';
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function LoginForm() {
+  const [ errorMessage, dispatch] = useFormState(authenticate, undefined);
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -23,7 +27,7 @@ export default function LoginForm() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form action={dispatch} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                 Email address
@@ -62,13 +66,28 @@ export default function LoginForm() {
                 />
               </div>
             </div>
-
-            <div>
-              <Button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign In</Button>
-            </div>
+            <LoginButton />
+            <div className="flex h-8 items-end space-x-1">
+        {errorMessage && (
+            <>
+              {/* <ExclamationCircleIcon className="h-5 w-5 text-red-500" /> */}
+              <p className="text-sm text-red-500">{errorMessage}</p>
+            </>
+        )}
+          {/* Add form errors here */}
+        </div>
           </form>
         </div>
       </div>
     </>
+  )
+}
+
+function LoginButton () {
+  const {pending, data} = useFormStatus();
+  return (
+    <div>
+    <Button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type='submit' disabled={pending}>Sign In {pending && '...'}</Button>
+  </div>
   )
 }
