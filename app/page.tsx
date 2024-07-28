@@ -7,7 +7,8 @@ export default function Page() {
       <div className="mt-2">
             <ModeToggle />
           </div>
-      <LandingPage/>
+      {/* <LandingPage/> */}
+      <h1 className='text-center text-5xl mt-40'>COMING SOON</h1>
     </div>
   );
 }
