@@ -13,17 +13,17 @@ const nextAuth = NextAuth({
         password: {},
       },
       async authorize(credentials) {
-        console.log('credentials', credentials);
+        // console.log('credentials', credentials);
         const email = credentials.email as string;
         const password = credentials.password as string;
 
         const user = await getUser(email);
-        console.log('user', user);
+        // console.log('user', user);
         if (!user) {
           return null;
         }
         const passwordMatch = await bcrypt.compare(password, user.password);
-        console.log('passwordMatch', passwordMatch);
+        // console.log('passwordMatch', passwordMatch);
 
         if (passwordMatch) {
           console.log('logged in');
