@@ -3,10 +3,12 @@ import Credentials from "next-auth/providers/credentials";
 import { authConfig } from "./auth.config";
 import bcrypt from 'bcryptjs';
 import { getUser } from '@/app/lib/action';
+import GitHub from "next-auth/providers/github";
+import Google from "next-auth/providers/google";
 
 const nextAuth = NextAuth({
   ...authConfig,
-  providers: [
+  providers: [GitHub, Google,
     Credentials({
       credentials: {
         email: {},
