@@ -6,25 +6,39 @@ import nft from '@/public/nft.jpg'
 import Link from "next/link";
 import wariz from '@/public/warizz.jpg'
 import { Button } from "./ui/button";
-
+import { ModeToggle } from "@/components/toggle";
+import Foot from "./Foot";
 
 
 export default function LandingPage() {
     const [showImage, setShowImage] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
+    function timer () {
+        setTimeout(() => {
             setShowImage(false);
         }, 500)
-        return () => clearTimeout(timer);
+    }
+    useEffect(() => {
+        timer();
     }, []);
+
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setShowImage(false);
+    //     }, 500)
+    //     return () => clearTimeout(timer);
+    // }, []);
     return (
         <section className="font-sans container mx-auto">
             {showImage ? <div className='w-full h-full flex justify-center mt-80'>
                 <h1 className="text-7xl md:text-9xl">waveSort</h1>
             </div> : <>
                 <section className="md:hidden">
+                    <div className="mt-2 flex justify-between">
                     <Image src='/next.svg' alt="Logo" width={60} height={40} className="dark:bg-green-50" />
+                    <ModeToggle />
+                        
+                    </div>
                     <div className="flex flex-col items-center">
                         <h1 className="uppercase w-52 mt-4 mb-8 text-2xl text-center">Create and access content all in one place.</h1>
                         <Image src={nft} alt="Logo" width={400} height={400} className="mb-8 rounded-full" />
@@ -47,7 +61,7 @@ export default function LandingPage() {
                         <nav className="flex justify-between items-center">
                             <div className="">
 
-                                <Image src='/next.svg' alt="Logo" width={400} height={400} priority className="dark:bg-green-50" />
+                                <Image src='/next.svg' alt="Logo" width={60} height={40} priority className="dark:bg-green-50" />
                             </div>
                             <ul className="flex justify-around">
                                 <li className="p-2 mr-2"><Link href="">Home</Link></li>
@@ -58,6 +72,9 @@ export default function LandingPage() {
 
                                 <Link href='/login' ><Button className="mr-8">Log In</Button></Link>
                                 <Link href='/signup'><Button className="mr-2 bg-[#09233c] p-2 rounded-md text-white">Sign Up</Button></Link>
+                            </div>
+                            <div className="mt-2">
+                                <ModeToggle />
                             </div>
                         </nav>
                     </header>
@@ -102,6 +119,7 @@ export default function LandingPage() {
                                 Take a look.</p>
                         </section>
                     </main>
+                    <Foot />
                 </section>
             </>}
         </section>
