@@ -29,7 +29,7 @@ export default function LandingPage() {
     //     return () => clearTimeout(timer);
     // }, []);
     return (
-        <section className="font-sans container mx-auto">
+        <section className="w-[90%] mx-auto">
             {showImage ? <div className='w-full h-full flex justify-center mt-80'>
                 <h1 className="text-7xl md:text-9xl">waveSort</h1>
             </div> : <>
