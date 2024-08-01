@@ -6,14 +6,6 @@ import { User } from "./type-definitions";
 import bcrypt from 'bcryptjs';
 import {AuthError} from 'next-auth'
 
-// export async function authenticate(
-//   prevState: string | undefined,
-//    formData: FormData,
-// ) {
-//   await signIn("credentials", formData);
-//   // console.log("after");
-// }
-
 
 export async function authenticate(
   prevState: string | undefined,
