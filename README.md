@@ -1,1 +1,1 @@
-## In this age of pictures, hashtags, Reels, TikTok, likes, and comments, a traditional bookworm’s heaven would be a blog to access more text-based content. WaveSort aims to be that heaven specifically for this kind of audience. It is a multi-functional platform for authors and readers to create and access content.
+## Coming soon
